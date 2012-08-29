@@ -84,6 +84,12 @@ bool HelloWorld::init()
         this->addChild(pSprite, 0);
 
         bRet = true;
+
+		CCObject* o1= new CCObject();
+
+		CCLOG("%d",o1->retainCount());
+		o1->release();
+		
     } while (0);
 
     return bRet;
