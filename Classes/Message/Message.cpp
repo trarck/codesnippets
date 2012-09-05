@@ -1,46 +1,92 @@
 //
 //  Message.m
 //  Message
-//
+
 //  Created by trarck on 11-11-27.
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "Message.h"
+#include "Message.h"
 
+using namespace std;
 
-@implementation Message
+NS_CC_BEGIN
 
-@synthesize type,timeStamp;
-@synthesize sender,receiver,data;
-
--(id)initWithType:(int) type_ sender:(id) sender_ receiver:(id) receiver_ data:(NSDictionary *) data_ 
+Message::Message(void)
+:m_type(0)
+,m_sender(NULL)
+,m_receiver(NULL)
+,m_data(NULL)
+,m_timeStamp(0.0f)
 {
-	self = [super init];
-    if (self) {
-        type=type_;
-		sender=sender_;
-		receiver=receiver_;
-		data=data_;
-		timeStamp=0;
-    }
     
-    return self;
 }
 
-- (id)initWithType:(int) type_ sender:(id) sender_ data:(NSDictionary *) data_
+Message::~Message(void)
 {
-    return [self initWithType:type_ sender:sender_ receiver:nil data:data_];
+    CC_SAFE_RELEASE(m_data);
 }
 
-- (void)dealloc
+MessageType Message::getType()
 {
-    [super dealloc];
+    return m_type;
 }
 
--(NSString *) description
+void Message::setType(MessageType type)
 {
-	return [NSString stringWithFormat:@"type:%d,sender:%@,receiver:%@,data:%@",type,sender,receiver,data];
+    m_type=type;
 }
 
-@end
+MessageParty Message::getSender()
+{
+    return m_sender;
+}
+void Message::setSender(MessageParty sender)
+{
+    CC_SAFE_RETAIN(sender);
+    CC_SAFE_RELEASE(m_sender);
+    m_sender=sender;
+}
+
+MessageParty Message::getReceiver()
+{
+    return m_receiver;
+}
+
+void Message::setReceiver(MessageParty receiver)
+{
+    CC_SAFE_RETAIN(receiver);
+    CC_SAFE_RELEASE(m_receiver);
+    m_receiver=receiver;
+}
+
+CCDictionary* Message::getData()
+{
+    return m_data;
+}
+
+void Message::setData(CCDictionary* data)
+{
+    CC_SAFE_RETAIN(data);
+    CC_SAFE_RELEASE(m_data);
+    m_data=data;
+}
+
+
+bool Message::initWithType(MessageType type,MessageParty sender ,MessageParty receiver ,CCDictionary *data)
+{
+
+    m_type=type;
+    setSender(sender);
+    setReceiver(receiver);
+    setData(data);
+    
+    return true;
+}
+
+bool Message::initWithType(MessageType type,MessageParty sender,CCDictionary *data)
+{
+    return initWithType(type,sender,NULL,data);
+}
+
+NS_CC_END

@@ -12,3 +12,5 @@
 *.a
 
 /proj.win32/Debug.win32
+proj.ios/codecodesnippets/libs/cocos2dx
+proj.ios/codecodesnippets/libs/CocosDenshion

@@ -12,33 +12,40 @@
 #define __Message_H__
 #include "cocos2d.h"
 
+NS_CC_BEGIN
+
 typedef unsigned int MessageType;
-typedef CCObject *MessageObject;
+//typedef CCObject *MessageObject;
+typedef CCObject *MessageParty;
+//typedef long int MessageParty;
 //typedef NSString *MessageType
 //typedef id MessageSender;
 //typedef int MessageSender;
 
 class Message : public CCObject {
+
 public:
+    Message();
+    ~Message(void);
+    
 	MessageType getType();
 	void setType(MessageType type);
-	MessageObject getSender();
-	void setSender(MessageObject sender);
-	MessageObject getReceiver();
-	void setReceiver(MessageObject receiver);
+	MessageParty getSender();
+	void setSender(MessageParty sender);
+	MessageParty getReceiver();
+	void setReceiver(MessageParty receiver);
 	CCDictionary* getData();
 	void setData(CCDictionary* data);
+    bool initWithType(MessageType type,MessageParty sender ,MessageParty receiver ,CCDictionary *data);
+    bool initWithType(MessageType type,MessageParty sender,CCDictionary *data);
 private:
-    MessageType type;//消息的类型或ID。
-    MessageObject sender;//消息的发送者
-	MessageObject receiver;//消息的接收者
-    float timeStamp;//发送时间
-	CCDictionary *data;
-}
+    MessageType m_type;//消息的类型或ID。
+    MessageParty m_sender;//消息的发送者
+	MessageParty m_receiver;//消息的接收者
+    float m_timeStamp;//发送时间
+	CCDictionary *m_data;
+};
 
--(id)initWithType:(MessageType type,MessageObject sender ,MessageObject receiver ,CCDictionary *data;
--(id)initWithType:(MessageType type,MessageObject sender,CCDictionary *data);
-
-
+NS_CC_END
 
 #endif  // __Message_H__
