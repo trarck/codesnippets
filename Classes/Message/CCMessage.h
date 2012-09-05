@@ -22,11 +22,11 @@ typedef CCObject *MessageParty;
 //typedef id MessageSender;
 //typedef int MessageSender;
 
-class Message : public CCObject {
+class CCMessage : public CCObject {
 
 public:
-    Message();
-    ~Message(void);
+    CCMessage();
+    ~CCMessage(void);
     
 	MessageType getType();
 	void setType(MessageType type);
@@ -45,6 +45,9 @@ private:
     float m_timeStamp;//发送时间
 	CCDictionary *m_data;
 };
+
+//typedef void (CCObject::*SEL_MessageHandler)(CCMessage*);
+//#define message_selector(_SELECTOR) (SEL_MessageHandler)(&_SELECTOR)
 
 NS_CC_END
 

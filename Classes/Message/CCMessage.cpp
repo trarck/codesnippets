@@ -6,13 +6,13 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#include "Message.h"
+#include "CCMessage.h"
 
 using namespace std;
 
 NS_CC_BEGIN
 
-Message::Message(void)
+CCMessage::CCMessage(void)
 :m_type(0)
 ,m_sender(NULL)
 ,m_receiver(NULL)
@@ -22,50 +22,54 @@ Message::Message(void)
     
 }
 
-Message::~Message(void)
+CCMessage::~CCMessage(void)
 {
+    CCLog("destroy Message begin");
+    CC_SAFE_RELEASE(m_sender);
+    CC_SAFE_RELEASE(m_receiver);
     CC_SAFE_RELEASE(m_data);
+    CCLog("destroy Message end");
 }
 
-MessageType Message::getType()
+MessageType CCMessage::getType()
 {
     return m_type;
 }
 
-void Message::setType(MessageType type)
+void CCMessage::setType(MessageType type)
 {
     m_type=type;
 }
 
-MessageParty Message::getSender()
+MessageParty CCMessage::getSender()
 {
     return m_sender;
 }
-void Message::setSender(MessageParty sender)
+void CCMessage::setSender(MessageParty sender)
 {
     CC_SAFE_RETAIN(sender);
     CC_SAFE_RELEASE(m_sender);
     m_sender=sender;
 }
 
-MessageParty Message::getReceiver()
+MessageParty CCMessage::getReceiver()
 {
     return m_receiver;
 }
 
-void Message::setReceiver(MessageParty receiver)
+void CCMessage::setReceiver(MessageParty receiver)
 {
     CC_SAFE_RETAIN(receiver);
     CC_SAFE_RELEASE(m_receiver);
     m_receiver=receiver;
 }
 
-CCDictionary* Message::getData()
+CCDictionary* CCMessage::getData()
 {
     return m_data;
 }
 
-void Message::setData(CCDictionary* data)
+void CCMessage::setData(CCDictionary* data)
 {
     CC_SAFE_RETAIN(data);
     CC_SAFE_RELEASE(m_data);
@@ -73,7 +77,7 @@ void Message::setData(CCDictionary* data)
 }
 
 
-bool Message::initWithType(MessageType type,MessageParty sender ,MessageParty receiver ,CCDictionary *data)
+bool CCMessage::initWithType(MessageType type,MessageParty sender ,MessageParty receiver ,CCDictionary *data)
 {
 
     m_type=type;
@@ -84,7 +88,7 @@ bool Message::initWithType(MessageType type,MessageParty sender ,MessageParty re
     return true;
 }
 
-bool Message::initWithType(MessageType type,MessageParty sender,CCDictionary *data)
+bool CCMessage::initWithType(MessageType type,MessageParty sender,CCDictionary *data)
 {
     return initWithType(type,sender,NULL,data);
 }

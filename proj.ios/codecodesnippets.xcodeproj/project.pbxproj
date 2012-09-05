@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5725649515F73ED100F572DE /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5725649315F73ED100F572DE /* Message.cpp */; };
+		5725649515F73ED100F572DE /* CCMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5725649315F73ED100F572DE /* CCMessage.cpp */; };
 		572564C215F73EE900F572DE /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5725649715F73EE900F572DE /* AppDelegate.cpp */; };
 		572564C515F73EE900F572DE /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5725649E15F73EE900F572DE /* HelloWorldScene.cpp */; };
+		572564D815F7503400F572DE /* CCMessageHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 572564D615F7503400F572DE /* CCMessageHandler.cpp */; };
 		57B4BDA615F73CFF0002D632 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B4BDA515F73CFF0002D632 /* QuartzCore.framework */; };
 		57B4BDA815F73CFF0002D632 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B4BDA715F73CFF0002D632 /* OpenGLES.framework */; };
 		57B4BDAA15F73CFF0002D632 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B4BDA915F73CFF0002D632 /* OpenAL.framework */; };
@@ -201,12 +202,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5725649315F73ED100F572DE /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Message.cpp; path = ../../Classes/Message/Message.cpp; sourceTree = "<group>"; };
-		5725649415F73ED100F572DE /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = ../../Classes/Message/Message.h; sourceTree = "<group>"; };
+		5725649315F73ED100F572DE /* CCMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCMessage.cpp; path = ../../Classes/Message/CCMessage.cpp; sourceTree = "<group>"; };
+		5725649415F73ED100F572DE /* CCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMessage.h; path = ../../Classes/Message/CCMessage.h; sourceTree = "<group>"; };
 		5725649715F73EE900F572DE /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		5725649815F73EE900F572DE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5725649E15F73EE900F572DE /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
 		5725649F15F73EE900F572DE /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
+		572564D615F7503400F572DE /* CCMessageHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCMessageHandler.cpp; path = ../../Classes/Message/CCMessageHandler.cpp; sourceTree = "<group>"; };
+		572564D715F7503400F572DE /* CCMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMessageHandler.h; path = ../../Classes/Message/CCMessageHandler.h; sourceTree = "<group>"; };
 		57B4BDA115F73CFF0002D632 /* codecodesnippets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = codecodesnippets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4BDA515F73CFF0002D632 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57B4BDA715F73CFF0002D632 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -632,8 +635,10 @@
 		5725649115F73EB600F572DE /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				5725649315F73ED100F572DE /* Message.cpp */,
-				5725649415F73ED100F572DE /* Message.h */,
+				572564D615F7503400F572DE /* CCMessageHandler.cpp */,
+				572564D715F7503400F572DE /* CCMessageHandler.h */,
+				5725649315F73ED100F572DE /* CCMessage.cpp */,
+				5725649415F73ED100F572DE /* CCMessage.h */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -1699,9 +1704,10 @@
 				57B4C01A15F73D070002D632 /* main.m in Sources */,
 				57B4C01D15F73D070002D632 /* AppController.mm in Sources */,
 				57B4C02015F73D070002D632 /* RootViewController.mm in Sources */,
-				5725649515F73ED100F572DE /* Message.cpp in Sources */,
+				5725649515F73ED100F572DE /* CCMessage.cpp in Sources */,
 				572564C215F73EE900F572DE /* AppDelegate.cpp in Sources */,
 				572564C515F73EE900F572DE /* HelloWorldScene.cpp in Sources */,
+				572564D815F7503400F572DE /* CCMessageHandler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

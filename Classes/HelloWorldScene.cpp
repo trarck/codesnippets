@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "CCMessage.h"
 
 using namespace cocos2d;
 
@@ -87,7 +88,14 @@ bool HelloWorld::init()
 
 		CCObject* o1= new CCObject();
 
-		CCLOG("%d",o1->retainCount());
+        CCMessage* pMsg=new CCMessage();
+        pMsg->initWithType(1, o1, o1, NULL);
+        
+		CCLOG("o1 retainCount=%d",o1->retainCount());
+        CCLOG("pMsg retainCount=%d",pMsg->retainCount());
+        pMsg->release();
+        CCLOG("o1 retainCount=%d",o1->retainCount());
+        CCLOG("pMsg retainCount=%d",pMsg->retainCount());
 		o1->release();
 		
     } while (0);
