@@ -1,7 +1,8 @@
 #include "HelloWorldScene.h"
-#include "CCMessage.h"
 
 using namespace cocos2d;
+
+extern void TestMain();
 
 CCScene* HelloWorld::scene()
 {
@@ -86,18 +87,10 @@ bool HelloWorld::init()
 
         bRet = true;
 
-		CCObject* o1= new CCObject();
-
-        CCMessage* pMsg=new CCMessage();
-        pMsg->initWithType(1, o1, o1, NULL);
+		        
+        TestMain();
         
-		CCLOG("o1 retainCount=%d",o1->retainCount());
-        CCLOG("pMsg retainCount=%d",pMsg->retainCount());
-        pMsg->release();
-        CCLOG("o1 retainCount=%d",o1->retainCount());
-        CCLOG("pMsg retainCount=%d",pMsg->retainCount());
-		o1->release();
-		
+				
     } while (0);
 
     return bRet;

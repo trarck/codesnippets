@@ -199,6 +199,8 @@
 		57B4C01A15F73D070002D632 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B4C01915F73D070002D632 /* main.m */; };
 		57B4C01D15F73D070002D632 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57B4C01C15F73D070002D632 /* AppController.mm */; };
 		57B4C02015F73D070002D632 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57B4C01F15F73D070002D632 /* RootViewController.mm */; };
+		57EE96A815F8359A00BB6253 /* MyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57EE96A715F8359A00BB6253 /* MyTest.cpp */; };
+		57EE96AD15F846B700BB6253 /* CCMessageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57EE96AB15F846B700BB6253 /* CCMessageManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -611,6 +613,9 @@
 		57B4C01C15F73D070002D632 /* AppController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppController.mm; path = ios/AppController.mm; sourceTree = "<group>"; };
 		57B4C01E15F73D070002D632 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ios/RootViewController.h; sourceTree = "<group>"; };
 		57B4C01F15F73D070002D632 /* RootViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = RootViewController.mm; path = ios/RootViewController.mm; sourceTree = "<group>"; };
+		57EE96A715F8359A00BB6253 /* MyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyTest.cpp; path = ../../Classes/MyTest.cpp; sourceTree = "<group>"; };
+		57EE96AB15F846B700BB6253 /* CCMessageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCMessageManager.cpp; path = ../../Classes/Message/CCMessageManager.cpp; sourceTree = "<group>"; };
+		57EE96AC15F846B700BB6253 /* CCMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMessageManager.h; path = ../../Classes/Message/CCMessageManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,6 +640,8 @@
 		5725649115F73EB600F572DE /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				57EE96AB15F846B700BB6253 /* CCMessageManager.cpp */,
+				57EE96AC15F846B700BB6253 /* CCMessageManager.h */,
 				572564D615F7503400F572DE /* CCMessageHandler.cpp */,
 				572564D715F7503400F572DE /* CCMessageHandler.h */,
 				5725649315F73ED100F572DE /* CCMessage.cpp */,
@@ -690,6 +697,7 @@
 		57B4BDB515F73CFF0002D632 /* codecodesnippets */ = {
 			isa = PBXGroup;
 			children = (
+				57EE96AA15F8468A00BB6253 /* Tests */,
 				5725649615F73EE900F572DE /* Classes */,
 				5725649115F73EB600F572DE /* Message */,
 				57B4BDB615F73CFF0002D632 /* Resources */,
@@ -1464,6 +1472,14 @@
 			name = ios;
 			sourceTree = "<group>";
 		};
+		57EE96AA15F8468A00BB6253 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				57EE96A715F8359A00BB6253 /* MyTest.cpp */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1708,6 +1724,8 @@
 				572564C215F73EE900F572DE /* AppDelegate.cpp in Sources */,
 				572564C515F73EE900F572DE /* HelloWorldScene.cpp in Sources */,
 				572564D815F7503400F572DE /* CCMessageHandler.cpp in Sources */,
+				57EE96A815F8359A00BB6253 /* MyTest.cpp in Sources */,
+				57EE96AD15F846B700BB6253 /* CCMessageManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

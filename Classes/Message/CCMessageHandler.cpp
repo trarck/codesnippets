@@ -10,6 +10,18 @@
 
 NS_CC_BEGIN
 
+CCMessageHandler::CCMessageHandler()
+:m_target(NULL)
+,m_handle(NULL)
+{
+    
+}
+
+CCMessageHandler::~CCMessageHandler()
+{
+    CC_SAFE_RELEASE(m_target);
+}
+
 CCObject* CCMessageHandler::getTarget()
 {
     return m_target;
@@ -37,6 +49,13 @@ bool CCMessageHandler::initWithTarget(CCObject* target,SEL_MessageHandler handle
     setTarget(target);
     m_handle=handle;
     return true;
+}
+
+void CCMessageHandler::execute(CCMessage *msg)
+{
+    if(m_handle){
+        (m_target->*m_handle)(msg);
+    }
 }
 
 NS_CC_END

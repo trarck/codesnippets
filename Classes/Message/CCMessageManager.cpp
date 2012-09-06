@@ -6,7 +6,7 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "MessageManager.h"
+#import "CCMessageManager.h"
 
 
 @implementation MessageManager
