@@ -21,8 +21,13 @@ NS_CC_BEGIN
 
 class CCMessageManager : public CCObject {
 public:
-    
+    CCMessageManager();
+    ~CCMessageManager();
+
     static CCMessageManager* defaultManager();
+
+    void init();
+    
     /**
      * observer 消息接收者
      * sender   消息发送者
@@ -31,7 +36,7 @@ public:
     
     void registerReceiver(CCObject* receiver,SEL_MessageHandler handle,MessageType type ,CCObject* sender);
     
-    void registerReceiver(CCObject* receiver,SEL_MessageHandler handle ,MessageType type ,CCObject* sender ,CCObject*  obj);
+    void registerReceiver(CCObject* receiver,SEL_MessageHandler handle ,MessageType type ,CCObject* sender ,CCObject*  handleObject);
                                                                                                                               
     void removeReceiver(CCObject* receiver ,SEL_MessageHandler handle ,MessageType type ,CCObject* sender);
                                                                                              
