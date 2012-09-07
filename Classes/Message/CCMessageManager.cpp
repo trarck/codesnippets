@@ -30,20 +30,20 @@ void CCMessageManager::init()
 
 //使receiver可以接收sender发送过来的叫type的消息，并用handle来处理
 //关注的对象是receiver
-void registerReceiver(CCObject* receiver,SEL_MessageHandler handle,MessageType type ,CCObject* sender)
+void CCMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHandler handle,MessageType type ,CCObject* sender)
 {
 	registerReceiver(receiver ,handle,type ,sender ,receiver);
 }
 
-void registerReceiver(CCObject* receiver,SEL_MessageHandler handle ,MessageType type ,CCObject* sender ,CCObject*  handleObject)
+void CCMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHandler handle ,MessageType type ,CCObject* sender ,CCObject*  handleObject)
 {
-	CCAssert(receiver!=nil,@"MessageManage:registerReceiver:receiver can't be null");
-	CCAssert(handle!=nil,@"MessageManage:registerReceiver:handle");
-	CCAssert(handleObject!=nil,@"MessageManage:registerReceiver:handleObject");
-	
+	CCAssert(receiver!=NULL,@"MessageManage:registerReceiver:receiver can't be null");
+	CCAssert(handle!=NULL,@"MessageManage:registerReceiver:handle");
+	CCAssert(handleObject!=NULL,@"MessageManage:registerReceiver:handleObject");
+
 	//type等于0，则所有消息都会发送
 	//register for type
-	CCDictionary *msgMap=(CCDictionary*)m_messages->objectForKey(type);
+	CCDictionary *msgMap=(CCDictionary*) m_messages->objectForKey(type);
 	if (msgMap==NULL) {
 		msgMap=new CCDictionary();
 		m_messages->setObject(msgMap,type);
@@ -73,7 +73,7 @@ void registerReceiver(CCObject* receiver,SEL_MessageHandler handle ,MessageType 
     CCObject* pObject = NULL;
     CCARRAY_FOREACH(receiverList,pObject){
         CCMessageHandler* handler=(CCMessageHandler*) pObject;
-        if (handler.handle==handle) {
+        if (handler->handle==handle) {
 			CCAssert(0,@"Handle has register for %@",receiver);
             isRegisted=true;
             break;

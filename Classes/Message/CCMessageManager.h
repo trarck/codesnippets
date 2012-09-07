@@ -55,8 +55,8 @@ public:
     void execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver);
                                                                                                     
 private:
-    CCDictionary *m_messages;
-	CCObject *m_globalObject;
+    CCDictionary* m_messages;
+	CCObject* m_globalObject;
 };
 
 NS_CC_END
