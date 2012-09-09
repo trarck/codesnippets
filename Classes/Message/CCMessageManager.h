@@ -43,16 +43,18 @@ public:
     void dispatchMessage(CCMessage* message);
                                                                                              
     void dispatchMessageWithType(MessageType type ,CCObject* sender ,CCObject* receiver,CCDictionary* data);
-                                                                                     
-    void execRegisterReceiverList(CCArray* receiverList ,CCMessage* message);
-                                                                                     
+                                                                           
+	void execRegisterReceiverList(CCArray* receiverList ,CCMessage* message);
+
+	void execAllRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message);
+
     void execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message);
+
+	void execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver);
                                                                                      
-    void execAllRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message);
-    
     void dispatchMessage(CCMessage* message ,CCObject*  receiver);
                                                       
-    void execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver);
+    
                                                                                                     
 private:
     CCDictionary* m_messages;

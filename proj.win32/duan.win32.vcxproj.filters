@@ -13,8 +13,8 @@
       <UniqueIdentifier>{7a32fe07-147c-49bc-b578-9785ba9703ab}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;png;manifest</Extensions>
     </Filter>
-    <Filter Include="source\FSM">
-      <UniqueIdentifier>{710d3e84-a72e-4df1-9244-023cf9c242a8}</UniqueIdentifier>
+    <Filter Include="source\Message">
+      <UniqueIdentifier>{5d79ed00-5cc2-4fdb-b267-ddb7882b87da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,11 +58,14 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\FSM\FSMMachine.h">
-      <Filter>source\FSM</Filter>
+    <ClInclude Include="..\Classes\Message\CCMessageHandler.h">
+      <Filter>source\Message</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\FSM\FSMState.h">
-      <Filter>source\FSM</Filter>
+    <ClInclude Include="..\Classes\Message\CCMessageManager.h">
+      <Filter>source\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Message\CCMessage.h">
+      <Filter>source\Message</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -75,11 +78,17 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\FSM\FSMState.cpp">
-      <Filter>source\FSM</Filter>
+    <ClCompile Include="..\Classes\MyTest.cpp">
+      <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\FSM\FSMMachine.cpp">
-      <Filter>source\FSM</Filter>
+    <ClCompile Include="..\Classes\Message\CCMessage.cpp">
+      <Filter>source\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Message\CCMessageHandler.cpp">
+      <Filter>source\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Message\CCMessageManager.cpp">
+      <Filter>source\Message</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
