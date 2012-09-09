@@ -16,6 +16,12 @@
     <Filter Include="source\Message">
       <UniqueIdentifier>{5d79ed00-5cc2-4fdb-b267-ddb7882b87da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\tests">
+      <UniqueIdentifier>{986f24c3-0545-4bf7-8624-f3165f1a4522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Message\CompleteMessage">
+      <UniqueIdentifier>{f2152d11-a4ee-45fd-8fec-600f214e38b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\duan.ico">

@@ -6,8 +6,8 @@
 //  Copyright 2011 yitengku.com. All rights reserved.
 //
 
-#ifndef __Message_Handler_H__
-#define __Message_Handler_H__
+#ifndef __CCMessage_Handler_H__
+#define __CCMessage_Handler_H__
 
 #include "cocos2d.h"
 
@@ -38,4 +38,4 @@ private:
 
 NS_CC_END
 
-#endif  // __Message_Handler_H__
+#endif  // __CCMessage_Handler_H__

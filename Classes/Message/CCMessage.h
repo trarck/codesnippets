@@ -8,8 +8,8 @@
 //  Created by trarck on 11-11-27.
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
-#ifndef __Message_H__
-#define __Message_H__
+#ifndef __CCMessage_H__
+#define __CCMessage_H__
 #include "cocos2d.h"
 
 NS_CC_BEGIN
@@ -51,4 +51,4 @@ private:
 
 NS_CC_END
 
-#endif  // __Message_H__
+#endif  // __CCMessage_H__

@@ -6,8 +6,8 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef __CCMessage_Manager_H__
-#define __CCMessage_Manager_H__
+#ifndef __CCIMessage_Manager_H__
+#define __CCIMessage_Manager_H__
 
 #include "cocos2d.h"
 #include "CCMessage.h"
@@ -19,14 +19,8 @@
 
 NS_CC_BEGIN
 
-class CCMessageManager : public CCObject {
+class CCIMessageManager : public CCObject {
 public:
-    CCMessageManager();
-    ~CCMessageManager();
-
-    static CCMessageManager* defaultManager();
-
-    void init();
     
     /**
      * observer 消息接收者
@@ -53,14 +47,8 @@ public:
 	void execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver);
                                                                                      
     void dispatchMessage(CCMessage* message ,CCObject*  receiver);
-                                                      
-    
-                                                                                                    
-private:
-    CCDictionary* m_messages;
-	CCObject* m_globalObject;
 };
 
 NS_CC_END
 
-#endif // __CCMessage_Manager_H__
+#endif // __CCIMessage_Manager_H__
