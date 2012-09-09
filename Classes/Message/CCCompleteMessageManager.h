@@ -42,10 +42,6 @@ public:
 	void registerReceiver(CCObject* receiver,SEL_MessageHandler handle,MessageType type ,CCObject* sender);
                                                                                                                               
     void removeReceiver(CCObject* receiver ,SEL_MessageHandler handle ,MessageType type ,CCObject* sender);
-                                                                                             
-    void dispatchMessage(CCMessage* message);
-                                                                                             
-    void dispatchMessageWithType(MessageType type ,CCObject* sender ,CCObject* receiver,CCDictionary* data);
                                                                            
 	void execRegisterReceiverList(CCArray* receiverList ,CCMessage* message);
 
@@ -54,6 +50,10 @@ public:
     void execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message);
 
 	void execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver);
+	                                                                                             
+    void dispatchMessage(CCMessage* message);
+                                                                                             
+    void dispatchMessageWithType(MessageType type ,CCObject* sender ,CCObject* receiver,CCDictionary* data);
                                                                                      
     void dispatchMessage(CCMessage* message ,CCObject*  receiver);
                                                                                                     

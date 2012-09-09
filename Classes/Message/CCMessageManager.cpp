@@ -118,6 +118,54 @@ void CCMessageManager::removeReceiver(CCObject* receiver ,SEL_MessageHandler han
 	}
 }
 
+
+void CCMessageManager::execRegisterReceiverList(CCArray* receiverList ,CCMessage* message)
+{
+	
+	CCAssert(receiverList!=NULL,@"CompleteMessageManage:execRegisterReceiverList:receiverList can't be null!");
+	CCObject* pObject = NULL;
+    CCARRAY_FOREACH(receiverList,pObject){
+        CCMessageHandler* handler=(CCMessageHandler*) pObject;
+		handler->execute(message);
+    }
+}
+
+void CCMessageManager::execAllRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
+{
+	CCAssert(senderMap!=NULL,@"CompleteMessageManage:execAllRegisterWithSenderMap:senderMap can't be null!");
+	//send to all
+	CCDictElement* pElement = NULL;
+	CCDICT_FOREACH(senderMap,pElement){
+		execRegisterReceiverList((CCArray*)pElement,message);
+	}
+}
+
+void CCMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
+{
+	CCObject* receiver=message->getReceiver();
+	if (receiver) {
+		//message for receiver
+		CCArray* receiverList=(CCArray*)senderMap->objectForKey(receiver->m_uID);
+		if(receiverList) execRegisterReceiverList(receiverList,message);
+	}else {
+		//send to all receiver
+		execAllRegisterWithSenderMap(senderMap ,message);
+	}
+}
+
+void CCMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver)
+{
+	CCAssert(senderMap!=NULL,@"CompleteMessageManage:execRegisterWithSenderMap:senderMap can't be null!");
+	if (receiver) {
+		//message for receiver
+		CCArray* receiverList=(CCArray*)senderMap->objectForKey(receiver->m_uID);
+		if(receiverList) execRegisterReceiverList(receiverList ,message);
+	}else {
+		//send to all receiver
+		execAllRegisterWithSenderMap(senderMap ,message);
+	}
+}
+
 //
 void CCMessageManager::dispatchMessage(CCMessage* message)
 {
@@ -180,54 +228,6 @@ void CCMessageManager::dispatchMessageWithType(MessageType type ,CCObject* sende
 	dispatchMessage(message);
 	message->release();
 }
-
-void CCMessageManager::execRegisterReceiverList(CCArray* receiverList ,CCMessage* message)
-{
-	
-	CCAssert(receiverList!=NULL,@"CompleteMessageManage:execRegisterReceiverList:receiverList can't be null!");
-	CCObject* pObject = NULL;
-    CCARRAY_FOREACH(receiverList,pObject){
-        CCMessageHandler* handler=(CCMessageHandler*) pObject;
-		handler->execute(message);
-    }
-}
-
-void CCMessageManager::execAllRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
-{
-	CCAssert(senderMap!=NULL,@"CompleteMessageManage:execAllRegisterWithSenderMap:senderMap can't be null!");
-	//send to all
-	CCDictElement* pElement = NULL;
-	CCDICT_FOREACH(senderMap,pElement){
-		execRegisterReceiverList((CCArray*)pElement,message);
-	}
-}
-
-void CCMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
-{
-	CCObject* receiver=message->getReceiver();
-	if (receiver) {
-		//message for receiver
-		CCArray* receiverList=(CCArray*)senderMap->objectForKey(receiver->m_uID);
-		if(receiverList) execRegisterReceiverList(receiverList,message);
-	}else {
-		//send to all receiver
-		execAllRegisterWithSenderMap(senderMap ,message);
-	}
-}
-
-void CCMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver)
-{
-	CCAssert(senderMap!=NULL,@"CompleteMessageManage:execRegisterWithSenderMap:senderMap can't be null!");
-	if (receiver) {
-		//message for receiver
-		CCArray* receiverList=(CCArray*)senderMap->objectForKey(receiver->m_uID);
-		if(receiverList) execRegisterReceiverList(receiverList ,message);
-	}else {
-		//send to all receiver
-		execAllRegisterWithSenderMap(senderMap ,message);
-	}
-}
-
 
 //适应message中没有receiver的情况
 void CCMessageManager::dispatchMessage(CCMessage* message ,CCObject*  receiver)

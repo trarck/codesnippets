@@ -105,6 +105,44 @@ void CCSimpleMessageManager::removeReceiver(CCObject* receiver ,SEL_MessageHandl
 	}
 }
 
+void CCSimpleMessageManager::execAllRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
+{
+	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execAllRegisterWithSenderMap:senderMap can't be null!");
+	//send to all
+	CCDictElement* pElement = NULL;
+	CCDICT_FOREACH(senderMap,pElement){
+		CCMessageHandler* handler=(CCMessageHandler*) pElement;
+		handler->execute(message);
+	}
+}
+
+void CCSimpleMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
+{
+	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
+	CCObject* receiver=message->getReceiver();
+	if (receiver) {
+		//message for receiver
+		CCMessageHandler* handler=(CCMessageHandler*)senderMap->objectForKey(receiver->m_uID);
+		if(handler) handler->execute(message);
+	}else {
+		//send to all receiver
+		execAllRegisterWithSenderMap(senderMap ,message);
+	}
+}
+
+void CCSimpleMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver)
+{
+	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
+	if (receiver) {
+		//message for receiver
+		CCMessageHandler* handler=(CCMessageHandler*)senderMap->objectForKey(receiver->m_uID);
+		if(handler) handler->execute(message);
+	}else {
+		//send to all receiver
+		execAllRegisterWithSenderMap(senderMap ,message);
+	}
+}
+
 //
 void CCSimpleMessageManager::dispatchMessage(CCMessage* message)
 {
@@ -167,44 +205,6 @@ void CCSimpleMessageManager::dispatchMessageWithType(MessageType type ,CCObject*
 	message->release();
 }
 
-void CCSimpleMessageManager::execAllRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
-{
-	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execAllRegisterWithSenderMap:senderMap can't be null!");
-	//send to all
-	CCDictElement* pElement = NULL;
-	CCDICT_FOREACH(senderMap,pElement){
-		CCMessageHandler* handler=(CCMessageHandler*) pElement;
-		handler->execute(message);
-	}
-}
-
-void CCSimpleMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
-{
-	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
-	CCObject* receiver=message->getReceiver();
-	if (receiver) {
-		//message for receiver
-		CCMessageHandler* handler=(CCMessageHandler*)senderMap->objectForKey(receiver->m_uID);
-		if(handler) handler->execute(message);
-	}else {
-		//send to all receiver
-		execAllRegisterWithSenderMap(senderMap ,message);
-	}
-}
-
-void CCSimpleMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver)
-{
-	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
-	if (receiver) {
-		//message for receiver
-		CCMessageHandler* handler=(CCMessageHandler*)senderMap->objectForKey(receiver->m_uID);
-		if(handler) handler->execute(message);
-	}else {
-		//send to all receiver
-		execAllRegisterWithSenderMap(senderMap ,message);
-	}
-}
-
 //适应message中没有receiver的情况
 void CCSimpleMessageManager::dispatchMessage(CCMessage* message ,CCObject*  receiver)
 {
@@ -258,5 +258,4 @@ void CCSimpleMessageManager::dispatchMessage(CCMessage* message ,CCObject*  rece
 	}
 }
 
-
-@end
+NS_CC_END
