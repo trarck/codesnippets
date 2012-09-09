@@ -24,6 +24,17 @@ void MyHandler::onMessage(CCMessage *msg)
     CCLog("####doMessage");
 }
 
+class MyHandler2:public CCObject
+{
+public:
+
+    void onMessage(CCMessage* msg);
+};
+
+void MyHandler2::onMessage(CCMessage *msg)
+{
+    CCLog("####doMessage");
+}
 
 void TestMain()
 {
@@ -45,6 +56,9 @@ void TestMain()
     
     pMsg->release();
     
+	CCLOG("pMsgHandler->getHandle()==message_selector(MyHandler::onMessage) %d",pMsgHandler->getHandle()==message_selector(MyHandler::onMessage));
+	CCLOG("pMsgHandler->getHandle()==message_selector(MyHandler2::onMessage) %d",pMsgHandler->getHandle()==message_selector(MyHandler2::onMessage));
+
     CCLOG("myHandler retainCount=%d",myHandler->retainCount());
     myHandler->release();
     CCLOG("myHandler retainCount=%d",myHandler->retainCount());
