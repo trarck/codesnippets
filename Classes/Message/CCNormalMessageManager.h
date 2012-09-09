@@ -9,13 +9,21 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Message.h"
-#import "MessageHandler.h"
-#import "CompleteMessageManager.h"
+#ifndef __CCNormal_Message_Manager_H__
+#define __CCNormal_Message_Manager_H__
 
-@interface NormalMessageManager: CompleteMessageManager {
+#include "cocos2d.h"
+#include "CCCompleteMessageManager.h"
 
+NS_CC_BEGIN
+
+class CCNormalMessageManager: public CCCompleteMessageManager {
+public:
+	static CCNormalMessageManager* sharedNormalMessageManager();
+private:
+	static CCNormalMessageManager* s_sharedNormalMessageManagerInstance;
 }
 
-@end
+NS_CC_END
+
+#endif // __CCNormal_Message_Manager_H__

@@ -28,13 +28,6 @@ void CCMessageManager::init()
 	m_globalObject=new CCObject();
 }
 
-//使receiver可以接收sender发送过来的叫type的消息，并用handle来处理
-//关注的对象是receiver
-void CCMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHandler handle,MessageType type ,CCObject* sender)
-{
-	registerReceiver(receiver ,handle,type ,sender ,receiver);
-}
-
 void CCMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHandler handle ,MessageType type ,CCObject* sender ,CCObject*  handleObject)
 {
 	CCAssert(receiver!=NULL,@"MessageManage:registerReceiver:receiver can't be null");
@@ -91,6 +84,13 @@ void CCMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHandler ha
         receiverList->addObject(handler);
         handler->release();
     }
+}
+
+//使receiver可以接收sender发送过来的叫type的消息，并用handle来处理
+//关注的对象是receiver
+void CCMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHandler handle,MessageType type ,CCObject* sender)
+{
+	registerReceiver(receiver ,handle,type ,sender ,receiver);
 }
 
 void CCMessageManager::removeReceiver(CCObject* receiver ,SEL_MessageHandler handle ,MessageType type ,CCObject* sender)

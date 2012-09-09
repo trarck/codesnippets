@@ -6,43 +6,42 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "NormalMessageManager.h"
-#import <sys/time.h>
+#include "CCNormalMessageManager.h"
 
+NS_CC_BEGIN
 
-@implementation NormalMessageManager
+CCNormalMessageManager* CCNormalMessageManager::s_sharedNormalMessageManagerInstance=NULL;
 
-static NormalMessageManager *default_;
-+(id) defaultManager
+CCNormalMessageManager* CCNormalMessageManager::sharedNormalMessageManager(void)
 {
-	if (!default_) {
-		default_=[[NormalMessageManager alloc] init];
+	if (!s_sharedNormalMessageManagerInstance) {
+		s_sharedNormalMessageManagerInstance=new CCNormalMessageManager();
+		s_sharedNormalMessageManagerInstance->init();
 	}
-	return default_;
+	return s_sharedNormalMessageManagerInstance;
 }
 
--(void) dispatchMessage:(Message*) message
+void CCNormalMessageManager::dispatchMessage(Message* message)
 {
 	//NSAssert(message.type!=0,)
 	//message for type
-	NSNumber * msgKey=[NSNumber numberWithInt:message.type];
-	NSMutableDictionary *msgMap=[messages_ objectForKey:msgKey];
+	CCDictionary* msgMap=(CCDictionary*)m_messages->objectForKey(message->getType());
 	if (msgMap) {
 		//parse for sender
 		//如果sender不为空，则不要触发一次全局消息，只触发sender的消息。
-		if (message.sender) {
+		CCObject* sender=message->getSender();
+		if (sender) {
 			//执行注册到sender的消息的处理方法
-			NSValue *senderKey=[NSValue valueWithNonretainedObject:message.sender];
-			NSMutableDictionary *senderMap=[msgMap objectForKey:senderKey];
+			CCDictionary* senderMap=(CCDictionary*)msgMap->objectForKey(sender->m_uID);
 			//如果注册则执行
-			if (senderMap)  [self execRegisterWithSenderMap:senderMap message:message];
+			if (senderMap)   execRegisterWithSenderMap(senderMap ,message);
 		}else {
 			//执行注册到global的消息的处理方法
-			NSValue *globalKey=[NSValue valueWithNonretainedObject:globalObject_];
-			NSMutableDictionary *globalMap=[msgMap objectForKey:globalKey];
+			CCDictionary* globalMap=(CCDictionary*) msgMap->objectForKey(m_globalObject->m_uID);
 			//如果注册则执行
-			if (globalMap)  [self execRegisterWithSenderMap:globalMap message:message];
+			if (globalMap)   execRegisterWithSenderMap(globalMap ,message);
 		}
 	}
 }
-@end
+
+NS_CC_END
