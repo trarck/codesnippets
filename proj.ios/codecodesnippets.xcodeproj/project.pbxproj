@@ -11,6 +11,11 @@
 		572564C215F73EE900F572DE /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5725649715F73EE900F572DE /* AppDelegate.cpp */; };
 		572564C515F73EE900F572DE /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5725649E15F73EE900F572DE /* HelloWorldScene.cpp */; };
 		572564D815F7503400F572DE /* CCMessageHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 572564D615F7503400F572DE /* CCMessageHandler.cpp */; };
+		5780EDF815FD9FCF0020C4D1 /* CCCompleteMessageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5780EDF415FD9FCF0020C4D1 /* CCCompleteMessageManager.cpp */; };
+		5780EDF915FD9FCF0020C4D1 /* CCSimpleMessageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5780EDF615FD9FCF0020C4D1 /* CCSimpleMessageManager.cpp */; };
+		5780EE0515FDB5C70020C4D1 /* Car.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5780EE0015FDB5C70020C4D1 /* Car.cpp */; };
+		5780EE0615FDB5C70020C4D1 /* Man.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5780EE0215FDB5C70020C4D1 /* Man.cpp */; };
+		5780EE0815FDB8F40020C4D1 /* TestMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5780EE0315FDB5C70020C4D1 /* TestMessage.cpp */; };
 		57B4BDA615F73CFF0002D632 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B4BDA515F73CFF0002D632 /* QuartzCore.framework */; };
 		57B4BDA815F73CFF0002D632 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B4BDA715F73CFF0002D632 /* OpenGLES.framework */; };
 		57B4BDAA15F73CFF0002D632 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B4BDA915F73CFF0002D632 /* OpenAL.framework */; };
@@ -212,6 +217,16 @@
 		5725649F15F73EE900F572DE /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		572564D615F7503400F572DE /* CCMessageHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCMessageHandler.cpp; path = ../../Classes/Message/CCMessageHandler.cpp; sourceTree = "<group>"; };
 		572564D715F7503400F572DE /* CCMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMessageHandler.h; path = ../../Classes/Message/CCMessageHandler.h; sourceTree = "<group>"; };
+		5780EDF415FD9FCF0020C4D1 /* CCCompleteMessageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCCompleteMessageManager.cpp; path = ../../Classes/Message/CCCompleteMessageManager.cpp; sourceTree = "<group>"; };
+		5780EDF515FD9FCF0020C4D1 /* CCCompleteMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCCompleteMessageManager.h; path = ../../Classes/Message/CCCompleteMessageManager.h; sourceTree = "<group>"; };
+		5780EDF615FD9FCF0020C4D1 /* CCSimpleMessageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCSimpleMessageManager.cpp; path = ../../Classes/Message/CCSimpleMessageManager.cpp; sourceTree = "<group>"; };
+		5780EDF715FD9FCF0020C4D1 /* CCSimpleMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCSimpleMessageManager.h; path = ../../Classes/Message/CCSimpleMessageManager.h; sourceTree = "<group>"; };
+		5780EDFF15FDB5C70020C4D1 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Car.h; path = ../../Tests/Messages/Car.h; sourceTree = "<group>"; };
+		5780EE0015FDB5C70020C4D1 /* Car.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Car.cpp; path = ../../Tests/Messages/Car.cpp; sourceTree = "<group>"; };
+		5780EE0115FDB5C70020C4D1 /* Man.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Man.h; path = ../../Tests/Messages/Man.h; sourceTree = "<group>"; };
+		5780EE0215FDB5C70020C4D1 /* Man.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Man.cpp; path = ../../Tests/Messages/Man.cpp; sourceTree = "<group>"; };
+		5780EE0315FDB5C70020C4D1 /* TestMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestMessage.cpp; path = ../../Tests/Messages/TestMessage.cpp; sourceTree = "<group>"; };
+		5780EE0415FDB5C70020C4D1 /* TestMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMessage.h; path = ../../Tests/Messages/TestMessage.h; sourceTree = "<group>"; };
 		57B4BDA115F73CFF0002D632 /* codecodesnippets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = codecodesnippets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B4BDA515F73CFF0002D632 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57B4BDA715F73CFF0002D632 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -640,6 +655,10 @@
 		5725649115F73EB600F572DE /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				5780EDF415FD9FCF0020C4D1 /* CCCompleteMessageManager.cpp */,
+				5780EDF515FD9FCF0020C4D1 /* CCCompleteMessageManager.h */,
+				5780EDF615FD9FCF0020C4D1 /* CCSimpleMessageManager.cpp */,
+				5780EDF715FD9FCF0020C4D1 /* CCSimpleMessageManager.h */,
 				57C147C815F988A50046E3C2 /* CCMessageManager.cpp */,
 				57C147C915F988A50046E3C2 /* CCMessageManager.h */,
 				572564D615F7503400F572DE /* CCMessageHandler.cpp */,
@@ -660,6 +679,19 @@
 			);
 			name = Classes;
 			path = ../../Classes;
+			sourceTree = "<group>";
+		};
+		5780EDFE15FDB5B90020C4D1 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				5780EDFF15FDB5C70020C4D1 /* Car.h */,
+				5780EE0015FDB5C70020C4D1 /* Car.cpp */,
+				5780EE0115FDB5C70020C4D1 /* Man.h */,
+				5780EE0215FDB5C70020C4D1 /* Man.cpp */,
+				5780EE0315FDB5C70020C4D1 /* TestMessage.cpp */,
+				5780EE0415FDB5C70020C4D1 /* TestMessage.h */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		57B4BD9615F73CFE0002D632 = {
@@ -1475,6 +1507,7 @@
 		57EE96AA15F8468A00BB6253 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				5780EDFE15FDB5B90020C4D1 /* Messages */,
 				57EE96A715F8359A00BB6253 /* MyTest.cpp */,
 			);
 			name = Tests;
@@ -1726,6 +1759,11 @@
 				572564D815F7503400F572DE /* CCMessageHandler.cpp in Sources */,
 				57EE96A815F8359A00BB6253 /* MyTest.cpp in Sources */,
 				57C147CA15F988A50046E3C2 /* CCMessageManager.cpp in Sources */,
+				5780EDF815FD9FCF0020C4D1 /* CCCompleteMessageManager.cpp in Sources */,
+				5780EDF915FD9FCF0020C4D1 /* CCSimpleMessageManager.cpp in Sources */,
+				5780EE0515FDB5C70020C4D1 /* Car.cpp in Sources */,
+				5780EE0615FDB5C70020C4D1 /* Man.cpp in Sources */,
+				5780EE0815FDB8F40020C4D1 /* TestMessage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

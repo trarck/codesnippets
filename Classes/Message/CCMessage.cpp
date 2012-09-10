@@ -19,7 +19,7 @@ CCMessage::CCMessage(void)
 ,m_data(NULL)
 ,m_timeStamp(0.0f)
 {
-    
+    CCLog("create Message");
 }
 
 CCMessage::~CCMessage(void)

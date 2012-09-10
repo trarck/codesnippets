@@ -7,8 +7,8 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef __CCComplete_Message_Manager_H__
-#define __CCComplete_Message_Manager_H__
+#ifndef __CCSimple_Message_Manager_H__
+#define __CCSimple_Message_Manager_H__
 
 #include "cocos2d.h"
 #include "CCMessage.h"
@@ -25,7 +25,7 @@ public:
 	CCSimpleMessageManager();
     ~CCSimpleMessageManager();
 
-    static CCSimpleMessageManager* sharedCompleteMessageManager();
+    static CCSimpleMessageManager* sharedSimpleMessageManager();
 
 //	static CCIMessageManager* sharedMessageManager();
 
@@ -57,8 +57,10 @@ public:
 
 private:
     CCDictionary *m_messages;
-	NSObject *m_globalObject;
+	CCObject *m_globalObject;
 	static CCSimpleMessageManager* s_sharedSimpleMessageManagerInstance;
 };
 
 NS_CC_END
+
+#endif //__CCSimple_Message_Manager_H__

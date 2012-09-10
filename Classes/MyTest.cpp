@@ -8,69 +8,51 @@
 
 #include "CCMessageHandler.h"
 #include "CCMessage.h"
+#include "TestMessage.h"
 
 using namespace cocos2d;
-
-
-class MyHandler:public CCObject
-{
-public:
-
-    void onMessage(CCMessage* msg);
-};
-
-void MyHandler::onMessage(CCMessage *msg)
-{
-    CCLog("####doMessage");
-}
-
-class MyHandler2:public CCObject
-{
-public:
-
-    void onMessage(CCMessage* msg);
-};
-
-void MyHandler2::onMessage(CCMessage *msg)
-{
-    CCLog("####doMessage");
-}
 
 void TestMain()
 {
     CCLog("TestMain");
-    CCObject* o1= new CCObject();
     
-    CCMessage* pMsg=new CCMessage();
-    pMsg->initWithType(1, o1, o1, NULL);
+    TestMessage testMessage;
     
-    CCLOG("o1 retainCount=%d",o1->retainCount());
-    CCLOG("pMsg retainCount=%d",pMsg->retainCount());
+    testMessage.testCreateMessage();
     
-    MyHandler* myHandler=new MyHandler();
     
-    CCMessageHandler *pMsgHandler= new CCMessageHandler();
-    pMsgHandler->initWithTarget(myHandler, message_selector(MyHandler::onMessage));
-    
-    pMsgHandler->execute(pMsg);
-    
-    pMsg->release();
-    
-	CCLOG("pMsgHandler->getHandle()==message_selector(MyHandler::onMessage) %d",pMsgHandler->getHandle()==message_selector(MyHandler::onMessage));
-	CCLOG("pMsgHandler->getHandle()==message_selector(MyHandler2::onMessage) %d",pMsgHandler->getHandle()==message_selector(MyHandler2::onMessage));
-
-    CCLOG("myHandler retainCount=%d",myHandler->retainCount());
-    myHandler->release();
-    CCLOG("myHandler retainCount=%d",myHandler->retainCount());
-    pMsgHandler->release();
-    CCLOG("myHandler retainCount=%d",myHandler->retainCount());
-    
-    CCLOG("pMsgHandler retainCount=%d",pMsgHandler->retainCount());
-    
-    CCLOG("o1 retainCount=%d",o1->retainCount());
-    CCLOG("pMsg retainCount=%d",pMsg->retainCount());    
-    
-    o1->release();
+//    CCObject* o1= new CCObject();
+//    
+//    CCMessage* pMsg=new CCMessage();
+//    pMsg->initWithType(1, o1, o1, NULL);
+//    
+//    CCLOG("o1 retainCount=%d",o1->retainCount());
+//    CCLOG("pMsg retainCount=%d",pMsg->retainCount());
+//    
+//    MyHandler* myHandler=new MyHandler();
+//    
+//    CCMessageHandler *pMsgHandler= new CCMessageHandler();
+//    pMsgHandler->initWithTarget(myHandler, message_selector(MyHandler::onMessage));
+//    
+//    pMsgHandler->execute(pMsg);
+//    
+//    pMsg->release();
+//    
+//	CCLOG("pMsgHandler->getHandle()==message_selector(MyHandler::onMessage) %d",pMsgHandler->getHandle()==message_selector(MyHandler::onMessage));
+//	CCLOG("pMsgHandler->getHandle()==message_selector(MyHandler2::onMessage) %d",pMsgHandler->getHandle()==message_selector(MyHandler2::onMessage));
+//
+//    CCLOG("myHandler retainCount=%d",myHandler->retainCount());
+//    myHandler->release();
+//    CCLOG("myHandler retainCount=%d",myHandler->retainCount());
+//    pMsgHandler->release();
+//    CCLOG("myHandler retainCount=%d",myHandler->retainCount());
+//    
+//    CCLOG("pMsgHandler retainCount=%d",pMsgHandler->retainCount());
+//    
+//    CCLOG("o1 retainCount=%d",o1->retainCount());
+//    CCLOG("pMsg retainCount=%d",pMsg->retainCount());    
+//    
+//    o1->release();
 }
 
 
