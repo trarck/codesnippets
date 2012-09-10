@@ -47,9 +47,9 @@ void CCSimpleMessageManager::init()
 //type,sender,receiver,handle唯一，同一接收者的同一个消息只有一个处理函数
 void CCSimpleMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHandler handle ,MessageType type ,CCObject* sender ,CCObject*  handleObject)
 {
-	CCAssert(receiver!=NULL,@"SimpleMessageManager:registerReceiver:receiver can't be null");
-	CCAssert(handle!=NULL,@"SimpleMessageManager:registerReceiver:handle");
-	CCAssert(handleObject!=NULL,@"SimpleMessageManager:registerReceiver:handleObject");
+	CCAssert(receiver!=NULL,"SimpleMessageManager:registerReceiver:receiver can't be null");
+	CCAssert(handle!=NULL,"SimpleMessageManager:registerReceiver:handle");
+	CCAssert(handleObject!=NULL,"SimpleMessageManager:registerReceiver:handleObject");
 	
 	//type等于0，则所有消息都会发送
 	//register for type
@@ -72,7 +72,7 @@ void CCSimpleMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHand
 	//register for receiver
 	//检查是否已经注册过
 	CCMessageHandler* handler=(CCMessageHandler*)senderMap->objectForKey(receiver->m_uID);
-	CCAssert(!handler,@"SimpleMessageManager:registerReceiver:Handle has register for %@",receiver);
+	CCAssert(!handler,"SimpleMessageManager:registerReceiver:Handle has register");
 	if(!handler){
 		//register for handler
 		handler=new CCMessageHandler();
@@ -89,8 +89,8 @@ void CCSimpleMessageManager::registerReceiver(CCObject* receiver,SEL_MessageHand
 
 void CCSimpleMessageManager::removeReceiver(CCObject* receiver ,SEL_MessageHandler handle ,MessageType type ,CCObject* sender)
 {
-	CCAssert(receiver!=NULL,@"SimpleMessageManager:removeReceiver:receiver can't be null!");
-	CCAssert(handle!=NULL,@"SimpleMessageManager:registerReceiver:handle");
+	CCAssert(receiver!=NULL,"SimpleMessageManager:removeReceiver:receiver can't be null!");
+	CCAssert(handle!=NULL,"SimpleMessageManager:registerReceiver:handle");
 	
 	//message for type
 	CCDictionary* msgMap=(CCDictionary*)m_messages->objectForKey(type);
@@ -107,7 +107,7 @@ void CCSimpleMessageManager::removeReceiver(CCObject* receiver ,SEL_MessageHandl
 
 void CCSimpleMessageManager::execAllRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
 {
-	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execAllRegisterWithSenderMap:senderMap can't be null!");
+	CCAssert(senderMap!=NULL,"SimpleMessageManager:execAllRegisterWithSenderMap:senderMap can't be null!");
 	//send to all
 	CCDictElement* pElement = NULL;
 	CCDICT_FOREACH(senderMap,pElement){
@@ -118,7 +118,7 @@ void CCSimpleMessageManager::execAllRegisterWithSenderMap(CCDictionary* senderMa
 
 void CCSimpleMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message)
 {
-	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
+	CCAssert(senderMap!=NULL,"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
 	CCObject* receiver=message->getReceiver();
 	if (receiver) {
 		//message for receiver
@@ -132,7 +132,7 @@ void CCSimpleMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,C
 
 void CCSimpleMessageManager::execRegisterWithSenderMap(CCDictionary* senderMap,CCMessage* message,CCObject*  receiver)
 {
-	CCAssert(senderMap!=NULL,@"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
+	CCAssert(senderMap!=NULL,"SimpleMessageManager:execRegisterWithSenderMap:senderMap can't be null!");
 	if (receiver) {
 		//message for receiver
 		CCMessageHandler* handler=(CCMessageHandler*)senderMap->objectForKey(receiver->m_uID);
