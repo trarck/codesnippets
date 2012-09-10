@@ -14,12 +14,14 @@ CCMessageHandler::CCMessageHandler()
 :m_target(NULL)
 ,m_handle(NULL)
 {
-    
+	CCLOG("CCMessageHandler create");
 }
 
 CCMessageHandler::~CCMessageHandler()
 {
+	CCLOG("CCMessageHandler before destroy");
     CC_SAFE_RELEASE(m_target);
+    CCLOG("CCMessageHandler after destroy");
 }
 
 CCObject* CCMessageHandler::getTarget()

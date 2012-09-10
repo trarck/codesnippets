@@ -205,7 +205,7 @@
 		57B4C01D15F73D070002D632 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57B4C01C15F73D070002D632 /* AppController.mm */; };
 		57B4C02015F73D070002D632 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57B4C01F15F73D070002D632 /* RootViewController.mm */; };
 		57C147CA15F988A50046E3C2 /* CCMessageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C147C815F988A50046E3C2 /* CCMessageManager.cpp */; };
-		57EE96A815F8359A00BB6253 /* MyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57EE96A715F8359A00BB6253 /* MyTest.cpp */; };
+		57D2CF4C15FE0B4E00F06BF8 /* MyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57D2CF4B15FE0B4E00F06BF8 /* MyTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -630,7 +630,8 @@
 		57B4C01F15F73D070002D632 /* RootViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = RootViewController.mm; path = ios/RootViewController.mm; sourceTree = "<group>"; };
 		57C147C815F988A50046E3C2 /* CCMessageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCMessageManager.cpp; path = ../../Classes/Message/CCMessageManager.cpp; sourceTree = "<group>"; };
 		57C147C915F988A50046E3C2 /* CCMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMessageManager.h; path = ../../Classes/Message/CCMessageManager.h; sourceTree = "<group>"; };
-		57EE96A715F8359A00BB6253 /* MyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyTest.cpp; path = ../../Classes/MyTest.cpp; sourceTree = "<group>"; };
+		57D2CF4B15FE0B4E00F06BF8 /* MyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyTest.cpp; path = ../../Tests/MyTest.cpp; sourceTree = "<group>"; };
+		57D2CF4D15FE0F8C00F06BF8 /* Datas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Datas.h; path = ../../Tests/Messages/Datas.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -684,6 +685,7 @@
 		5780EDFE15FDB5B90020C4D1 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				57D2CF4D15FE0F8C00F06BF8 /* Datas.h */,
 				5780EDFF15FDB5C70020C4D1 /* Car.h */,
 				5780EE0015FDB5C70020C4D1 /* Car.cpp */,
 				5780EE0115FDB5C70020C4D1 /* Man.h */,
@@ -1507,8 +1509,8 @@
 		57EE96AA15F8468A00BB6253 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				57D2CF4B15FE0B4E00F06BF8 /* MyTest.cpp */,
 				5780EDFE15FDB5B90020C4D1 /* Messages */,
-				57EE96A715F8359A00BB6253 /* MyTest.cpp */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1757,13 +1759,13 @@
 				572564C215F73EE900F572DE /* AppDelegate.cpp in Sources */,
 				572564C515F73EE900F572DE /* HelloWorldScene.cpp in Sources */,
 				572564D815F7503400F572DE /* CCMessageHandler.cpp in Sources */,
-				57EE96A815F8359A00BB6253 /* MyTest.cpp in Sources */,
 				57C147CA15F988A50046E3C2 /* CCMessageManager.cpp in Sources */,
 				5780EDF815FD9FCF0020C4D1 /* CCCompleteMessageManager.cpp in Sources */,
 				5780EDF915FD9FCF0020C4D1 /* CCSimpleMessageManager.cpp in Sources */,
 				5780EE0515FDB5C70020C4D1 /* Car.cpp in Sources */,
 				5780EE0615FDB5C70020C4D1 /* Man.cpp in Sources */,
 				5780EE0815FDB8F40020C4D1 /* TestMessage.cpp in Sources */,
+				57D2CF4C15FE0B4E00F06BF8 /* MyTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

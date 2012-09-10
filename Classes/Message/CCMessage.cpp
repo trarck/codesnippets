@@ -19,16 +19,16 @@ CCMessage::CCMessage(void)
 ,m_data(NULL)
 ,m_timeStamp(0.0f)
 {
-    CCLog("create Message");
+    CCLog("Message create");
 }
 
 CCMessage::~CCMessage(void)
 {
-    CCLog("destroy Message begin");
+    CCLog("Message destroy  begin");
     CC_SAFE_RELEASE(m_sender);
     CC_SAFE_RELEASE(m_receiver);
     CC_SAFE_RELEASE(m_data);
-    CCLog("destroy Message end");
+    CCLog("Message destroy end");
 }
 
 MessageType CCMessage::getType()

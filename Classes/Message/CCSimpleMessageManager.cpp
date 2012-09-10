@@ -111,7 +111,7 @@ void CCSimpleMessageManager::execAllRegisterWithSenderMap(CCDictionary* senderMa
 	//send to all
 	CCDictElement* pElement = NULL;
 	CCDICT_FOREACH(senderMap,pElement){
-		CCMessageHandler* handler=(CCMessageHandler*) pElement;
+		CCMessageHandler* handler=(CCMessageHandler*) pElement->getObject();
 		handler->execute(message);
 	}
 }

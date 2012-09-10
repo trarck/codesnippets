@@ -8,8 +8,6 @@
 
 #include "Car.h"
 
-
-
 Car::Car()
 {
 	CCLOG("Car create");
@@ -29,4 +27,6 @@ void Car::stop()
 void Car::onMessage(CCMessage *message)
 {
     CCLOG("Car onMessage");
+    
+    CCLOG("receive message with type=%d,senderId=%d,receiverId=%d",message->getType(),message->getSender()->m_uID,message->getReceiver()->m_uID);
 }

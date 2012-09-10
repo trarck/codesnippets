@@ -24,13 +24,15 @@ CCCompleteMessageManager* CCCompleteMessageManager::sharedCompleteMessageManager
 
 CCCompleteMessageManager::CCCompleteMessageManager():m_messages(NULL),m_globalObject(NULL)
 {
-
+    CCLOG("CCCompleteMessageManager create");
 }
 
 CCCompleteMessageManager::~CCCompleteMessageManager()
 {
+    CCLOG("CCCompleteMessageManager before destroy");
 	CC_SAFE_RELEASE(m_messages);
 	CC_SAFE_RELEASE(m_globalObject);
+    CCLOG("CCCompleteMessageManager after destroy");
 }
 
 
@@ -148,7 +150,7 @@ void CCCompleteMessageManager::execAllRegisterWithSenderMap(CCDictionary* sender
 	//send to all
 	CCDictElement* pElement = NULL;
 	CCDICT_FOREACH(senderMap,pElement){
-		execRegisterReceiverList((CCArray*)pElement,message);
+		execRegisterReceiverList((CCArray*)pElement->getObject(),message);
 	}
 }
 

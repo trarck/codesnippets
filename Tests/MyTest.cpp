@@ -14,11 +14,15 @@ using namespace cocos2d;
 
 void TestMain()
 {
-    CCLog("TestMain");
+    CCLOG("TestMain");
     
     TestMessage testMessage;
     
     testMessage.testCreateMessage();
+    CCLOG("************************");
+    testMessage.testMessageHandle();
+    CCLOG("************************");
+    testMessage.testComplexMessageManager();
     
     
 //    CCObject* o1= new CCObject();
