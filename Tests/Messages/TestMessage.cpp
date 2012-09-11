@@ -10,6 +10,7 @@
 #include "Car.h"
 #include "Man.h"
 #include "CCCompleteMessageManager.h"
+#include "CCSimpleMessageManager.h"
 #include "TestMessage.h"
 #include "Datas.h"
 
@@ -17,6 +18,7 @@ USING_NS_CC;
 
 void TestMessage::testCreateMessage()
 {
+    CCLOG("*****************testCreateMessage*****************");
     Car* car=new Car();
     CCMessage* pMsg=new CCMessage();
     pMsg->initWithType(1, car, car, NULL);
@@ -40,6 +42,8 @@ void TestMessage::testCreateMessage()
 
 void TestMessage::testMessageHandle()
 {
+    CCLOG("*****************testMessageHandle*****************");
+    
 	Car* car=new Car();
     Man* man=new Man();
 	
@@ -63,7 +67,7 @@ void TestMessage::testMessageHandle()
 
 void TestMessage::testComplexMessageManager()
 {
-   
+   CCLOG("*****************testComplexMessageManager*****************");
     
     Car* aCar=new Car();
     Man* aMan=new Man();
@@ -113,9 +117,64 @@ void TestMessage::testComplexMessageManager()
     message->release();   
     messageManager->release();
     
+    aCar->release();
+    aMan->release();
+    
 }
 
 void TestMessage::testSimpleMessageManager()
 {
+    
+    CCLOG("*****************testComplexMessageManager*****************");
+    
+    
+    Car* aCar=new Car();
+    Man* aMan=new Man();
+    
+    DataItem datas[]={
+		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,aCar,aMan,NULL},
+		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,aCar,NULL,NULL},
+		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,NULL,aMan,NULL},//no
+		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,NULL,NULL,NULL},//no
+		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,aCar,aMan,NULL},
+		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,NULL,aMan,NULL},
+		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,NULL,NULL,NULL}
+	};
+    
+    int dataLength=sizeof(datas)/sizeof(DataItem);
+    DataItem it;
+    
+    for(int i=0;i<dataLength;i++){
+        CCLOG("do test %d",i);
+        it=datas[i];
+        RegisterData rd=it.regiester;
+        DispatchData dd=it.dispatch;
+        CCSimpleMessageManager* smm=new CCSimpleMessageManager();
+        smm->init();
+        smm->registerReceiver(rd.receiver, rd.handle,rd.type, rd.sender);
+        
+        CCMessage* message=new CCMessage();
+        message->initWithType(dd.type, dd.sender, dd.receiver, dd.data);
+        
+        smm->dispatchMessage(message);
+        
+        message->release();
+        smm->release();
+    }
+    
+    CCSimpleMessageManager* cmm=new CCSimpleMessageManager();
+    cmm->init();
+    cmm->registerReceiver(aMan, message_selector(Car::stop), CarStop, aMan);
+    
+    CCMessage* message=new CCMessage();
+    message->initWithType(CarStop, aCar, aMan, NULL);
+    cmm->dispatchMessage(message);
+    
+    message->release();
+    cmm->release();
+    
+    
+    aMan->release();
+    aCar->release();
     
 }

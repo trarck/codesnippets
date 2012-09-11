@@ -19,10 +19,9 @@ void TestMain()
     TestMessage testMessage;
     
     testMessage.testCreateMessage();
-    CCLOG("************************");
     testMessage.testMessageHandle();
-    CCLOG("************************");
     testMessage.testComplexMessageManager();
+    testMessage.testSimpleMessageManager();
     
     
 //    CCObject* o1= new CCObject();
