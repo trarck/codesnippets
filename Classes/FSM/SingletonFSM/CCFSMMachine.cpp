@@ -5,53 +5,67 @@
 //  Created by trarck trarck on 11-11-24.
 //
 
-#import "FSMMachine.h"
+#include "CCFSMMachine.h"
 
-@implementation FSMMachine
+NS_CC_BEGIN
 
-@synthesize owner=owner_;
-@synthesize currentState=currentState_;
-
--(void) dealloc
+CCFSMMachine::CCFSMMachine():
+m_currentState(NULL),m_owner(NULL)
 {
-	NSLog(@"FSMMachine dealloc");
-
-	[super dealloc];
+	CCLOG("CCFSMMachine create");
 }
 
--(id) init
+CCFSMMachine::~CCFSMMachine()
 {
-	if((self=[super init])){
-		NSLog(@"FSMMachine init");
-	}
-	return self;
+	CCLOG("CCFSMMachine destroy");
+	CC_SAFE_RELEASE(m_currentState);
+}
+
+void CCFSMMachine::setOwner(CCIEntity* owner)
+{
+	m_owner=owner;
+}
+
+CCIEntity* CCFSMMachine::getOwner()
+{
+	return m_owner;
+}
+
+CCIFSMState* CCFSMMachine::getCurrentState()
+{
+	return m_currentState;
+}
+
+void CCFSMMachine::setCurrentState(CCIFSMState* state)
+{
+	CC_SAFE_RETAIN(state);
+	CC_SAFE_RELEASE(m_currentState);
+	m_currentState=state;
 }
 
 
--(id) initWithOwner:(id<IEntity>) owner
+void CCFSMMachine::initWithOwner:(CCIEntity* owner)
 {
-	if((self=[self init])){
-		owner_=owner;
-	}
-	return self;
+	m_owner=owner;
 }
 	
 
 
--(void) changeState:(id <IFSMState>)state
+void CCFSMMachine::changeState(CCIFSMState* state)
 {
-	[currentState_ exit:owner_];
-	currentState_=state;
-	[currentState_ enter:owner_];
+	m_currentState->exit(m_wner);
+	setCurrentState(state);
+	m_currentState->enter(m_owner);
 }
 
--(void) update
+void CCFSMMachine::update()
 {
-	[currentState_ update:owner_];
+	m_currentState->update(m_owner);
 }
 
--(void) HandleMessage:(Message *) message
+void CCFSMMachine::handleMessage(CCMessage* message)
 {
-	[currentState_ onMessage:message entity:owner_];
+	m_currentState->onMessage(message ,m_owner);
 }
-@end
+
+NN_CC_END

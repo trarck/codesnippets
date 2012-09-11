@@ -25,10 +25,10 @@ public:
 
     //由于State是单例，可以直接取得，无须另外保存
 
-    void update();
-    void handleMessage(CCMessage* message);
+    virtual void update();
+    virtual void handleMessage(CCMessage* message);
 
-    void changeState(CCIFSMState* state);//可有可无
+    virtual void changeState(CCIFSMState* state);//可有可无
 
 };
 
