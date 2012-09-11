@@ -1,5 +1,5 @@
-#ifndef __Man_H__
-#define __Man_H__
+#ifndef __MAN_H__
+#define __MAN_H__
 
 #include "cocos2d.h"
 #include "CCFSMMachine.h"
@@ -27,4 +27,4 @@ private:
 	unsigned int distance_;
 };
 
-#endif //__Man_H__
+#endif //__MAN_H__
