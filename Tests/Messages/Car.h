@@ -21,6 +21,10 @@ public:
     ~Car();
     void stop();
     void onMessage(CCMessage* message);
+    void resetMessageResult();
+    int getMessageResult();
+private:
+    int m_messageResult;
 };
 
 #endif //__Car_H__ 

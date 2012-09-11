@@ -73,14 +73,14 @@ void TestMessage::testComplexMessageManager()
     Man* aMan=new Man();
     
     DataItem datas[]={
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,aCar,aMan,NULL},
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,aCar,NULL,NULL},
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,NULL,aMan,NULL},//no
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,NULL,NULL,NULL},//no
-		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,aCar,aMan,NULL},
-		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,NULL,aMan,NULL},
-		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,NULL,NULL,NULL},
-		{MsgAll,aCar,aMan,message_selector(Man::wait),CarStop,aCar,aMan,NULL}
+		{CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,aCar,aMan,NULL ,1},
+		{CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,aCar,NULL,NULL ,1},
+		{CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,NULL,aMan,NULL ,0},//no
+		{CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,NULL,NULL,NULL ,0},//no
+		{CarStop,NULL,aMan,message_selector(Man::wait)  ,CarStop,aCar,aMan,NULL ,1},
+		{CarStop,NULL,aMan,message_selector(Man::wait)  ,CarStop,NULL,aMan,NULL ,1},
+		{CarStop,NULL,aMan,message_selector(Man::wait)  ,CarStop,NULL,NULL,NULL ,1},
+		{MsgAll,aCar,aMan,message_selector(Man::wait)   ,CarStop,aCar,aMan,NULL ,1}
 	};
     
     int dataLength=sizeof(datas)/sizeof(DataItem);
@@ -100,6 +100,9 @@ void TestMessage::testComplexMessageManager()
         
         cmm->dispatchMessage(message);
         
+        CCAssert(aMan->getMessageResult()==it.result, "test testComplexMessageManager fail");
+        aMan->resetMessageResult();
+        
         message->release();
         cmm->release();
         
@@ -113,6 +116,9 @@ void TestMessage::testComplexMessageManager()
     message->initWithType(CarStop, aCar, aMan, NULL);
     
     messageManager->dispatchMessage(message);
+    
+    CCAssert(aCar->getMessageResult()==1, "test testComplexMessageManager fail");
+    aCar->resetMessageResult();
     
     message->release();   
     messageManager->release();
@@ -132,14 +138,15 @@ void TestMessage::testSimpleMessageManager()
     Man* aMan=new Man();
     
     DataItem datas[]={
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,aCar,aMan,NULL},
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,aCar,NULL,NULL},
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,NULL,aMan,NULL},//no
-		{CarStop,aCar,aMan,message_selector(Man::wait),CarStop,NULL,NULL,NULL},//no
-		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,aCar,aMan,NULL},
-		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,NULL,aMan,NULL},
-		{CarStop,NULL,aMan,message_selector(Man::wait),CarStop,NULL,NULL,NULL}
-	};
+        {CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,aCar,aMan,NULL ,1},
+		{CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,aCar,NULL,NULL ,1},
+		{CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,NULL,aMan,NULL ,0},//no
+		{CarStop,aCar,aMan,message_selector(Man::wait)  ,CarStop,NULL,NULL,NULL ,0},//no
+		{CarStop,NULL,aMan,message_selector(Man::wait)  ,CarStop,aCar,aMan,NULL ,1},
+		{CarStop,NULL,aMan,message_selector(Man::wait)  ,CarStop,NULL,aMan,NULL ,1},
+		{CarStop,NULL,aMan,message_selector(Man::wait)  ,CarStop,NULL,NULL,NULL ,1},
+		{MsgAll,aCar,aMan,message_selector(Man::wait)   ,CarStop,aCar,aMan,NULL ,1}	
+    };
     
     int dataLength=sizeof(datas)/sizeof(DataItem);
     DataItem it;
@@ -158,21 +165,27 @@ void TestMessage::testSimpleMessageManager()
         
         smm->dispatchMessage(message);
         
+        CCAssert(aMan->getMessageResult()==it.result, "test testComplexMessageManager fail");
+        aMan->resetMessageResult();
+        
         message->release();
         smm->release();
     }
     
     CCSimpleMessageManager* cmm=new CCSimpleMessageManager();
     cmm->init();
-    cmm->registerReceiver(aMan, message_selector(Car::stop), CarStop, aMan);
+    cmm->registerReceiver(aMan, message_selector(Car::stop), CarStop, NULL,aCar);
     
     CCMessage* message=new CCMessage();
     message->initWithType(CarStop, aCar, aMan, NULL);
     cmm->dispatchMessage(message);
     
+    CCAssert(aCar->getMessageResult()==1, "test testComplexMessageManager fail");
+    aCar->resetMessageResult();
+    
+    
     message->release();
     cmm->release();
-    
     
     aMan->release();
     aCar->release();

@@ -20,6 +20,10 @@ public:
     Man();
     ~Man();
     void wait(CCMessage* message);
+    void resetMessageResult();
+    int getMessageResult();
+private:
+    int m_messageResult;
 };
 
 #endif //__Man_H__

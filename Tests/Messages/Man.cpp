@@ -22,4 +22,15 @@ Man::~Man()
 void Man::wait(CCMessage *message)
 {
     CCLOG("Man wait");
+    m_messageResult=1;
+}
+
+void Man::resetMessageResult()
+{
+    m_messageResult=0;
+}
+
+int Man::getMessageResult()
+{
+    return m_messageResult;
 }

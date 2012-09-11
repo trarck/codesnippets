@@ -28,6 +28,7 @@ typedef struct Dispatch_Data{
 typedef struct DataItem{
 	RegisterData regiester;
 	DispatchData dispatch;
+    int result;
 } DataItem;
 
 enum  {
