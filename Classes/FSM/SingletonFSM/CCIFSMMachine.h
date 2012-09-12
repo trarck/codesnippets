@@ -22,6 +22,7 @@ public:
     virtual void setOwner(CCIEntity* owner);
     virtual CCIEntity* getOwner();
     virtual CCIFSMState* getCurrentState();
+    virtual void setCurrentState(CCIFSMState* state);
 
     //由于State是单例，可以直接取得，无须另外保存
 

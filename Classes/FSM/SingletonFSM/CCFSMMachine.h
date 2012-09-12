@@ -10,7 +10,7 @@
 
 #include "CCIFSMMachine.h"
 #include "CCIFSMState.h"
-#include "CCIEntity"
+#include "CCIEntity.h"
 
 NS_CC_BEGIN
 
@@ -25,26 +25,20 @@ public:
 	virtual void setOwner(CCIEntity* owner);
     virtual CCIEntity* getOwner();
     virtual CCIFSMState* getCurrentState();
+    virtual void setCurrentState(CCIFSMState* state);
 
-    //ÓÉÓÚStateÊÇµ¥Àı£¬¿ÉÒÔÖ±½ÓÈ¡µÃ£¬ÎŞĞëÁíÍâ±£´æ
+    //ç”±äºStateæ˜¯å•ä¾‹ï¼Œå¯ä»¥ç›´æ¥å–å¾—ï¼Œæ— é¡»å¦å¤–ä¿å­˜
 
     virtual void update();
     virtual void handleMessage(CCMessage* message);
 
-    virtual void changeState(CCIFSMState* state);//¿ÉÓĞ¿ÉÎŞ
+    virtual void changeState(CCIFSMState* state);//å¯æœ‰å¯æ— 
 private:
 	CCIFSMState* m_currentState;
 	CCIEntity* m_owner;
-	void setCurrentState(CCIFSMState* state);
+	
 };
 
 NS_CC_END
-
-@interface FSMMachine : NSObject<IFSMMachine> {
-	> currentState_;
-	id<IEntity> owner_;
-}
-
--(id) initWithOwner:(id <IEntity>)owner;
 
 #endif //__CCFSMMachine_H__

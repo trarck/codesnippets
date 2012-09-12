@@ -2,6 +2,7 @@
 #define __MAN_H__
 
 #include "cocos2d.h"
+#include "CCMessage.h"
 #include "CCFSMMachine.h"
 
 USING_NS_CC;
@@ -20,7 +21,7 @@ public:
 
 	void update();
 	void setup();
-	void handleMessage:(CCMessage* message);
+	void handleMessage(CCMessage* message);
 
 private:
 	CCFSMMachine* fsm_;

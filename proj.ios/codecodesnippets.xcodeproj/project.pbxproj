@@ -206,13 +206,18 @@
 		57B4C02015F73D070002D632 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57B4C01F15F73D070002D632 /* RootViewController.mm */; };
 		57C147CA15F988A50046E3C2 /* CCMessageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C147C815F988A50046E3C2 /* CCMessageManager.cpp */; };
 		57D2CF4C15FE0B4E00F06BF8 /* MyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57D2CF4B15FE0B4E00F06BF8 /* MyTest.cpp */; };
-		57F9C61715FF139A00D1B428 /* CCFSMMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F9C61315FF139A00D1B428 /* CCFSMMachine.cpp */; };
-		57F9C61815FF139A00D1B428 /* CCFSMState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F9C61515FF139A00D1B428 /* CCFSMState.cpp */; };
-		57F9C63215FF28FA00D1B428 /* CCFSMMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F9C62B15FF28FA00D1B428 /* CCFSMMachine.cpp */; };
-		57F9C63315FF28FA00D1B428 /* CCFSMState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F9C62D15FF28FA00D1B428 /* CCFSMState.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		570FFF581600200F0006134D /* CCFSMMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCFSMMachine.cpp; sourceTree = "<group>"; };
+		570FFF591600200F0006134D /* CCFSMMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFSMMachine.h; sourceTree = "<group>"; };
+		570FFF5A1600200F0006134D /* CCFSMState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCFSMState.cpp; sourceTree = "<group>"; };
+		570FFF5B1600200F0006134D /* CCFSMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFSMState.h; sourceTree = "<group>"; };
+		570FFF5C1600200F0006134D /* CCIEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIEntity.h; sourceTree = "<group>"; };
+		570FFF5D1600200F0006134D /* CCIFSMMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIFSMMachine.h; sourceTree = "<group>"; };
+		570FFF5E1600200F0006134D /* CCIFSMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIFSMState.h; sourceTree = "<group>"; };
+		570FFF5F1600200F0006134D /* CCIFSMStateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIFSMStateDelegate.h; sourceTree = "<group>"; };
+		570FFF601600200F0006134D /* CCIFSMStateParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIFSMStateParameter.h; sourceTree = "<group>"; };
 		5725649315F73ED100F572DE /* CCMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCMessage.cpp; path = ../../Classes/Message/CCMessage.cpp; sourceTree = "<group>"; };
 		5725649415F73ED100F572DE /* CCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMessage.h; path = ../../Classes/Message/CCMessage.h; sourceTree = "<group>"; };
 		5725649715F73EE900F572DE /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
@@ -636,22 +641,6 @@
 		57C147C915F988A50046E3C2 /* CCMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMessageManager.h; path = ../../Classes/Message/CCMessageManager.h; sourceTree = "<group>"; };
 		57D2CF4B15FE0B4E00F06BF8 /* MyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyTest.cpp; path = ../../Tests/MyTest.cpp; sourceTree = "<group>"; };
 		57D2CF4D15FE0F8C00F06BF8 /* Datas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Datas.h; path = ../../Tests/Messages/Datas.h; sourceTree = "<group>"; };
-		57F9C61315FF139A00D1B428 /* CCFSMMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCFSMMachine.cpp; path = ../../Classes/FSM/CCFSMMachine.cpp; sourceTree = "<group>"; };
-		57F9C61415FF139A00D1B428 /* CCFSMMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCFSMMachine.h; path = ../../Classes/FSM/CCFSMMachine.h; sourceTree = "<group>"; };
-		57F9C61515FF139A00D1B428 /* CCFSMState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCFSMState.cpp; path = ../../Classes/FSM/CCFSMState.cpp; sourceTree = "<group>"; };
-		57F9C61615FF139A00D1B428 /* CCFSMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCFSMState.h; path = ../../Classes/FSM/CCFSMState.h; sourceTree = "<group>"; };
-		57F9C61A15FF14DF00D1B428 /* CCIFSMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIFSMState.h; path = ../../Classes/FSM/CCIFSMState.h; sourceTree = "<group>"; };
-		57F9C62615FF204200D1B428 /* CCIEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIEntity.h; path = ../../Classes/FSM/CCIEntity.h; sourceTree = "<group>"; };
-		57F9C62715FF204200D1B428 /* CCIFSMMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIFSMMachine.h; path = ../../Classes/FSM/CCIFSMMachine.h; sourceTree = "<group>"; };
-		57F9C62815FF204300D1B428 /* CCIFSMStateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIFSMStateDelegate.h; path = ../../Classes/FSM/CCIFSMStateDelegate.h; sourceTree = "<group>"; };
-		57F9C62915FF204300D1B428 /* CCIFSMStateParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIFSMStateParameter.h; path = ../../Classes/FSM/CCIFSMStateParameter.h; sourceTree = "<group>"; };
-		57F9C62B15FF28FA00D1B428 /* CCFSMMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCFSMMachine.cpp; path = ../../Classes/SingletonFSM/CCFSMMachine.cpp; sourceTree = "<group>"; };
-		57F9C62C15FF28FA00D1B428 /* CCFSMMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCFSMMachine.h; path = ../../Classes/SingletonFSM/CCFSMMachine.h; sourceTree = "<group>"; };
-		57F9C62D15FF28FA00D1B428 /* CCFSMState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCFSMState.cpp; path = ../../Classes/SingletonFSM/CCFSMState.cpp; sourceTree = "<group>"; };
-		57F9C62E15FF28FA00D1B428 /* CCFSMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCFSMState.h; path = ../../Classes/SingletonFSM/CCFSMState.h; sourceTree = "<group>"; };
-		57F9C62F15FF28FA00D1B428 /* CCIEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIEntity.h; path = ../../Classes/SingletonFSM/CCIEntity.h; sourceTree = "<group>"; };
-		57F9C63015FF28FA00D1B428 /* CCIFSMMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIFSMMachine.h; path = ../../Classes/SingletonFSM/CCIFSMMachine.h; sourceTree = "<group>"; };
-		57F9C63115FF28FA00D1B428 /* CCIFSMState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCIFSMState.h; path = ../../Classes/SingletonFSM/CCIFSMState.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,6 +662,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		570FFF571600200F0006134D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				570FFF581600200F0006134D /* CCFSMMachine.cpp */,
+				570FFF591600200F0006134D /* CCFSMMachine.h */,
+				570FFF5A1600200F0006134D /* CCFSMState.cpp */,
+				570FFF5B1600200F0006134D /* CCFSMState.h */,
+				570FFF5C1600200F0006134D /* CCIEntity.h */,
+				570FFF5D1600200F0006134D /* CCIFSMMachine.h */,
+				570FFF5E1600200F0006134D /* CCIFSMState.h */,
+				570FFF5F1600200F0006134D /* CCIFSMStateDelegate.h */,
+				570FFF601600200F0006134D /* CCIFSMStateParameter.h */,
+			);
+			name = Common;
+			path = ../../Classes/FSM/Common;
+			sourceTree = "<group>";
+		};
 		5725649115F73EB600F572DE /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,7 +757,6 @@
 		57B4BDB515F73CFF0002D632 /* codecodesnippets */ = {
 			isa = PBXGroup;
 			children = (
-				57F9C62A15FF28F100D1B428 /* SingletonFSM */,
 				57F9C61115FF138B00D1B428 /* FSM */,
 				57EE96AA15F8468A00BB6253 /* Tests */,
 				5725649615F73EE900F572DE /* Classes */,
@@ -1540,31 +1545,10 @@
 		57F9C61115FF138B00D1B428 /* FSM */ = {
 			isa = PBXGroup;
 			children = (
-				57F9C62615FF204200D1B428 /* CCIEntity.h */,
-				57F9C62715FF204200D1B428 /* CCIFSMMachine.h */,
-				57F9C62815FF204300D1B428 /* CCIFSMStateDelegate.h */,
-				57F9C62915FF204300D1B428 /* CCIFSMStateParameter.h */,
-				57F9C61A15FF14DF00D1B428 /* CCIFSMState.h */,
-				57F9C61315FF139A00D1B428 /* CCFSMMachine.cpp */,
-				57F9C61415FF139A00D1B428 /* CCFSMMachine.h */,
-				57F9C61515FF139A00D1B428 /* CCFSMState.cpp */,
-				57F9C61615FF139A00D1B428 /* CCFSMState.h */,
+				570FFF571600200F0006134D /* Common */,
 			);
 			name = FSM;
-			sourceTree = "<group>";
-		};
-		57F9C62A15FF28F100D1B428 /* SingletonFSM */ = {
-			isa = PBXGroup;
-			children = (
-				57F9C62B15FF28FA00D1B428 /* CCFSMMachine.cpp */,
-				57F9C62C15FF28FA00D1B428 /* CCFSMMachine.h */,
-				57F9C62D15FF28FA00D1B428 /* CCFSMState.cpp */,
-				57F9C62E15FF28FA00D1B428 /* CCFSMState.h */,
-				57F9C62F15FF28FA00D1B428 /* CCIEntity.h */,
-				57F9C63015FF28FA00D1B428 /* CCIFSMMachine.h */,
-				57F9C63115FF28FA00D1B428 /* CCIFSMState.h */,
-			);
-			name = SingletonFSM;
+			path = ../../Classes/FSM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1818,10 +1802,6 @@
 				5780EE0615FDB5C70020C4D1 /* Man.cpp in Sources */,
 				5780EE0815FDB8F40020C4D1 /* TestMessage.cpp in Sources */,
 				57D2CF4C15FE0B4E00F06BF8 /* MyTest.cpp in Sources */,
-				57F9C61715FF139A00D1B428 /* CCFSMMachine.cpp in Sources */,
-				57F9C61815FF139A00D1B428 /* CCFSMState.cpp in Sources */,
-				57F9C63215FF28FA00D1B428 /* CCFSMMachine.cpp in Sources */,
-				57F9C63315FF28FA00D1B428 /* CCFSMState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

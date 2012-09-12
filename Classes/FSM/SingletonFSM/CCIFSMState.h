@@ -12,6 +12,7 @@
 
 #include "cocos2d.h"
 #include "CCMessage.h"
+#include "CCIEntity.h"
 
 NS_CC_BEGIN
 

@@ -1,5 +1,6 @@
 #include "Man.h"
-#include "CompleteMessageManager.h"
+#include "CCCompleteMessageManager.h"
+#include "Type.h"
 
 Man::Man():fsm_(NULL),distance_(0)
 {
@@ -20,7 +21,7 @@ void Man::setFsm(CCFSMMachine* fsm)
 	fsm_->setOwner(this);
 }
 
-Man::CCFSMMachine* getFsm()
+CCFSMMachine* Man::getFsm()
 {
 	return fsm_;
 }
@@ -44,9 +45,9 @@ void Man::update()
 void Man::setup()
 {
 	CCLOG("Man update");
-	CompleteMessageManager::sharedCompleteMessageManager->registerMessage:MSG_Find_Enimy handle:@selector(handleMessage:) sender:nil];
-	[self registerMessage:MSG_Approach_Sucess handle:@selector(handleMessage:) sender:nil];
-	[self registerMessage:MSG_Enimy_Die handle:@selector(handleMessage:) sender:nil];
+    CCCompleteMessageManager::sharedCompleteMessageManager()->registerReceiver(this, message_selector(Man::handleMessage), MSG_Find_Enimy, NULL);
+    CCCompleteMessageManager::sharedCompleteMessageManager()->registerReceiver(this, message_selector(Man::handleMessage), MSG_Approach_Sucess, NULL);
+    CCCompleteMessageManager::sharedCompleteMessageManager()->registerReceiver(this, message_selector(Man::handleMessage), MSG_Enimy_Die, NULL);
 }
 
 void Man::handleMessage(CCMessage* message)

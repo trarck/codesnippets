@@ -13,11 +13,13 @@
 NS_CC_BEGIN
 
 
-class CCIFSMMachine:public CCObject{
-    
+class CCIFSMMachine:public CCObject
+{
+public:    
     virtual void setOwner(CCIEntity* owner);
     virtual CCIEntity* getOwner();
     virtual CCIFSMState* getCurrentState();
+    virtual void setCurrentState(CCIFSMState* state);
     
     virtual void addState(CCIFSMState* state ,CCObject* key);
     virtual void addState(CCIFSMState* state ,CCString* name);

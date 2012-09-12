@@ -44,7 +44,7 @@ void CCFSMMachine::setCurrentState(CCIFSMState* state)
 }
 
 
-void CCFSMMachine::initWithOwner:(CCIEntity* owner)
+void CCFSMMachine::initWithOwner(CCIEntity* owner)
 {
 	m_owner=owner;
 }
@@ -53,7 +53,7 @@ void CCFSMMachine::initWithOwner:(CCIEntity* owner)
 
 void CCFSMMachine::changeState(CCIFSMState* state)
 {
-	m_currentState->exit(m_wner);
+	m_currentState->exit(m_owner);
 	setCurrentState(state);
 	m_currentState->enter(m_owner);
 }
@@ -68,4 +68,4 @@ void CCFSMMachine::handleMessage(CCMessage* message)
 	m_currentState->onMessage(message ,m_owner);
 }
 
-NN_CC_END
+NS_CC_END
