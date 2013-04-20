@@ -1,12 +1,11 @@
-#include "cocos2d.h"
-#include "CCEGLView.h"
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+
+#include "cocos2d.h"
+#include "controller.h"
 #include "SimpleAudioEngine.h"
 
-using namespace CocosDenshion;
-
 USING_NS_CC;
+using namespace CocosDenshion;
 
 AppDelegate::AppDelegate()
 {
@@ -14,17 +13,27 @@ AppDelegate::AppDelegate()
 
 AppDelegate::~AppDelegate()
 {
-    SimpleAudioEngine::end();
+//    SimpleAudioEngine::end();
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
     // initialize director
     CCDirector *pDirector = CCDirector::sharedDirector();
-    pDirector->setOpenGLView(&CCEGLView::sharedOpenGLView());
+    pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
 
-    // enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
-//     pDirector->enableRetinaDisplay(true);
+    CCSize screenSize = CCEGLView::sharedOpenGLView()->getFrameSize();
+    
+    CCSize designSize = CCSizeMake(480, 320);
+    
+    if (screenSize.height > 320)
+    {
+        CCSize resourceSize = CCSizeMake(960, 640);
+        CCFileUtils::sharedFileUtils()->setResourceDirectory("hd");
+        pDirector->setContentScaleFactor(resourceSize.height/designSize.height);
+    }
+    
+    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(designSize.width, designSize.height, kResolutionNoBorder);
 
     // turn on display FPS
     pDirector->setDisplayStats(true);
@@ -32,11 +41,13 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
 
-    // create a scene. it's an autorelease object
-    CCScene *pScene = HelloWorld::scene();
+    CCScene * pScene = CCScene::create();
+    CCLayer * pLayer = new TestController();
+    pLayer->autorelease();
 
-    // run
+    pScene->addChild(pLayer);
     pDirector->runWithScene(pScene);
+
     return true;
 }
 
@@ -44,14 +55,14 @@ bool AppDelegate::applicationDidFinishLaunching()
 void AppDelegate::applicationDidEnterBackground()
 {
     CCDirector::sharedDirector()->stopAnimation();
-
     SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+    SimpleAudioEngine::sharedEngine()->pauseAllEffects();
 }
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground()
 {
     CCDirector::sharedDirector()->startAnimation();
-
     SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+    SimpleAudioEngine::sharedEngine()->resumeAllEffects();
 }

@@ -1,10 +1,10 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by duan.RC
+// Used by CCLibs.RC
 //
 
 #define IDS_PROJNAME                100
-#define IDR_DUAN    100
+#define IDR_CCLIBS    100
 
 #define ID_FILE_NEW_WINDOW            32771
 
